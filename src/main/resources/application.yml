@@ -1,0 +1,29 @@
+server:
+  port: 88
+mybatis:
+  mapperLocations: classpath*:mapper/*.xml
+  typeAliasesPackage: com.kv.model
+spring:
+  datasource:
+    username: root
+    password: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/swagger?useSSL=false
+    druid:
+      initialSize: 5
+      minIdle: 5
+      maxEvictableIdleTimeMillis: 60000
+      maxWait: 60000
+      maxActive: 20
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      filters: stat,wall,log4j
+      useGlobalDataSourceStat: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
